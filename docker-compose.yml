@@ -1,0 +1,23 @@
+version: '1.0'
+services:
+  app:  #불러온 이미지 기반으로 컨테이너에 올리기 위해 새로 빌드 하게 될 이미지 이름
+    build:  # 불러올 이미지 & 기반으로 빌드
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: backend  # 올릴 컨테이너 이름
+    ports:                   # 로컬과 연결할 포트 번호
+      - "3001:3000"          # 3001은 로컬에, 3000은 컨테이너에 연결되는 포트번호를 말한다.
+    environment:             # .env 환경에서 설정해준 내용들
+      PORT: 3000
+      JWT_SECRET: SECRET_KEYYYYYYYYYYYYYYY
+      ID : isaac
+      PASSWORD : isnmk2267!
+      NODE_ENV_PORT : 3001
+      COOKIE_SECRET : cookiesecret
+      LOGGER_LEVEL: debug
+      DB_HOST: 172.30.1.95
+      DB_PORT: 3306
+      DB_DATABASE: mydb
+      DB_ID: root
+      DB_PASS: root
+      DB_DIALECT: mysql
