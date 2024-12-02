@@ -9,9 +9,8 @@ exports.login = async (req,res,next) => {
   const {id, password} = req.body;
   const user = await User.findOne( { where: { id: id }});
   try{
-    // if(!id || !password) {
-    //   return res.sendStatus(404)
-    // }
+    const verify = user.dataValues.verify
+    
     if(!user){
       return res.sendStatus(404)
     }
@@ -30,6 +29,7 @@ exports.login = async (req,res,next) => {
         code:200,
         message: "토큰발급",
         token,
+        verify
       })
     } else {
       return res.sendStatus(400).json({
@@ -42,3 +42,13 @@ exports.login = async (req,res,next) => {
   }
 }
 
+exports.verify_token = async (req,res,next) => {
+  console.log("POST /checkVerify 진입");
+  try{
+    return res.status(200).json({
+      message: 'Okay'
+    })
+  } catch {
+    return res.status(400)
+  }
+}

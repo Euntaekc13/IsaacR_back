@@ -5,15 +5,18 @@ const bcrypt = require('bcrypt');
 exports.auth = async () =>{
   const id = process.env.ID
   const pw = process.env.PASSWORD
+  const verify = process.env.VERIFY
   const masterID = process.env.MASTER_ID
   const masterPW = process.env.MASTER_PW
+  const masterVerify = process.env.MASTER_VERIFY
   const hash = await bcrypt.hash(pw, 12)
   const Master_hash = await bcrypt.hash(masterPW,12)
   const [user, created_user] = await User.findOrCreate({
     where:{id: id},
     defaults:{
       id:id,
-      password: hash
+      password: hash,
+      verify : verify
     }
   })
   if(created_user){
@@ -27,7 +30,8 @@ exports.auth = async () =>{
     where:{id: masterID},
     defaults:{
       id: masterID,
-      password: Master_hash
+      password: Master_hash,
+      verify : masterVerify
     }
   })
   if(created_master){

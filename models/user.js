@@ -13,6 +13,10 @@ class User extends Sequelize.Model {
           type: Sequelize.STRING(100),
           allowNull:false
         },
+        verify:{
+          type: Sequelize.STRING(10),
+          allowNull:false,
+        }
       },
       {
         sequelize,
