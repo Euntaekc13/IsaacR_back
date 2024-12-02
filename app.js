@@ -18,6 +18,10 @@ const app = express();
 const PORT = process.env.NODE_ENV_PORT;
 app.set("port", PORT);
 
+app.get('/health', (req, res) => {
+  res.status(200).send("Success Heatlth Check");
+})
+
 
 
 //시퀄라이즈_MYsqlDB
