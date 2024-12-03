@@ -57,9 +57,10 @@ app.use(
     resave: false,
     saveUninitialized: false,
     secret: process.env.COOKIE_SECRET,
+    proxy: true,
     cookie: {
       httpOnly: true,
-      secure: false,
+      secure: true,
     },
   })
 );
@@ -74,10 +75,11 @@ app.set('views',path.join(__dirname,'views'))
 app.engine('html',require('ejs').renderFile)
 app.set('view engine','html')
 
-app.use("/", indexRouter);
 app.get("/",(req,res)=>{
   res.send("Hello User~")
 })
+app.use("/", indexRouter);
+
 
 
 app.use((req, res, next) => {
