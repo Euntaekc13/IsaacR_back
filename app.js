@@ -75,6 +75,9 @@ app.engine('html',require('ejs').renderFile)
 app.set('view engine','html')
 
 app.use("/", indexRouter);
+app.get("/",(req,res)=>{
+  res.send("Hello User~")
+})
 
 
 app.use((req, res, next) => {
