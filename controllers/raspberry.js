@@ -20,7 +20,7 @@ exports.getMachineData = async (req, res, next) => {
       const data = req.body
       // const Arr_result = arration(data) 
       
-      console.log(data);
+      console.log(req);
       // for(i in Arr_result) {
       //   // console.log(i);
       //   if(Arr_result[i][0] == 1){
