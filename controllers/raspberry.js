@@ -25,7 +25,7 @@ exports.getMachineData = async (req, res, next) => {
         const logger2 = data.logger2
         const logger3 = data.logger3
         const radiation = data.radiation
-        const OnoffData = await Machine3.create({
+        const OnoffData = await Machine1.create({
           T1:logger3[0],
           T2:logger3[1],
           T3:logger3[2],
@@ -42,7 +42,7 @@ exports.getMachineData = async (req, res, next) => {
           solarRadiat:radiation[0],
           Temperature:radiation[1]
         });
-        const VaiableData = await Machine4.create({
+        const VaiableData = await Machine2.create({
           T1:logger2[0],
           T2:logger2[1],
           T3:logger2[2],
