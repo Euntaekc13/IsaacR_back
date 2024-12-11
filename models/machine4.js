@@ -4,93 +4,78 @@ class Machine4 extends Sequelize.Model {
   static init(sequelize) {
     return super.init(
       {
-        time:{
-          type: Sequelize.DATE(6),
-          allowNull:false
+        createAt:{
+          type: Sequelize.DATE,
+          allowNull:true,
+          defaultValue:Sequelize.NOW
         },
         T1:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T2:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T3:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T4:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T5:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
-        },
-        T6:{
-          type:Sequelize.INTEGER(3),
-          allowNull:false,
-        },
-        T7:{
-          type:Sequelize.INTEGER(3),
-          allowNull:false,
-        },
-        T8:{
-          type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T9:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T10:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T11:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T12:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         T13:{
           type:Sequelize.INTEGER(3),
-          allowNull:false,
-        },
-        T14:{
-          type:Sequelize.INTEGER(3),
-          allowNull:false,
-        },
-        T15:{
-          type:Sequelize.INTEGER(3),
-          allowNull:false,
+          allowNull:true,
         },
         pump:{
-          type: Sequelize.INTEGER(1),
-          allowNull:false
+          type: Sequelize.INTEGER(3),
+          allowNull:true
         },
         heater:{
           type: Sequelize.INTEGER(1),
-          allowNull:false
+          allowNull:true
         },
         sole_noid:{
           type: Sequelize.INTEGER(1),
-          allowNull:false
+          allowNull:true
+        },
+        drain:{
+          type: Sequelize.INTEGER(1),
+          allowNull:true
         },
         flowrate:{
           type: Sequelize.FLOAT(10),
-          allowNull:false
-        },
-        H_flowrate:{
-          type: Sequelize.FLOAT(10),
-          allowNull:false
+          allowNull:true
         },
         solarRadiat:{
-          type: Sequelize.INTEGER(6),
-          allowNull:false
+          type: Sequelize.FLOAT(6),
+          allowNull:true
+        },
+        Temperature:{
+          type: Sequelize.FLOAT(6),
+          allowNull:true
         },
       },
       {

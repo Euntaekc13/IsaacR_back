@@ -28,39 +28,65 @@ exports.MachineHistory = async( req, res, next) => {
     const endDate = new Date(enddate)
     
     // //where 조건 추가 필요
-    if(machinenumber == 1) {
+    if(machinenumber === '광주 차온') {
       const TestResult = await Machine1.findAll({
         where:{
           [Op.and]:{
-            time : {
+            createAt : {
+              [Op.and]:[{[Op.gte]:startDate}, {[Op.lt]:endDate}]
+            }
+          }
+        }
+      })
+      console.log('TestResult : ',TestResult);
+      
+      return res.status(200).json({
+        message: "광주 차온",
+        data: {TestResult}
+      })
+    } 
+    else if(machinenumber === '광주 가변'){
+      const TestResult = await Machine2.findAll({
+        where:{
+          [Op.and]:{
+            createAt : {
               [Op.and]:[{[Op.gte]:startDate}, {[Op.lt]:endDate}]
             }
           }
         }
       })
       return res.status(200).json({
-        message: "machine 1",
+        message: "광주 가변",
         data: {TestResult}
       })
     } 
-    else if(machinenumber == 2){
-      const TestResult = await Machine2.findAll({})
-      return res.status(200).json({
-        message: "machine 2",
-        data: {TestResult}
+    else if(machinenumber === '서울 차온'){
+      const TestResult = await Machine3.findAll({
+        where:{
+          [Op.and]:{
+            createAt : {
+              [Op.and]:[{[Op.gte]:startDate}, {[Op.lt]:endDate}]
+            }
+          }
+        }
       })
-    } 
-    else if(machinenumber == 3){
-      const TestResult = await Machine3.findAll({})
       return res.status(200).json({
-        message: "machine 3",
+        message: "서울 차온",
         data: {TestResult}
       })
     }
-    else if(machinenumber == 4){
-      const TestResult = await Machine4.findAll({})
+    else if(machinenumber == '서울 가변'){
+      const TestResult = await Machine4.findAll({
+        where:{
+          [Op.and]:{
+            createAt : {
+              [Op.and]:[{[Op.gte]:startDate}, {[Op.lt]:endDate}]
+            }
+          }
+        }
+      })
       return res.status(200).json({
-        message: "machine 4",
+        message: "서울 가변",
         data: {TestResult}
       })
     } else {
