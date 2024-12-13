@@ -58,7 +58,7 @@ class Machine1 extends Sequelize.Model {
           allowNull:true
         },
         flowrate:{
-          type: Sequelize.FLOAT(10),
+          type: Sequelize.FLOAT(15),
           allowNull:true
         },
         solarRadiat:{

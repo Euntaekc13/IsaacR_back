@@ -18,7 +18,7 @@ const Control_Gwangju = require("../models/control_Gwangju") // 광주 제어
 exports.getMachineData = async (req, res, next) => {
     try{
       console.log("POST raspi data");
-      const data = req
+      const data = req.body
       
       if (data.address === 'Gwangju') {
         const control = data.control

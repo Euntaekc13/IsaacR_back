@@ -9,7 +9,7 @@ const development = {
   host: env.DB_HOST,
   port:env.DB_PORT,
   dialect: "mysql",
-  //timezone: "+09:00"
+  timezone: "+09:00"
   //port: env.MYSQL_PORT
 };
 
