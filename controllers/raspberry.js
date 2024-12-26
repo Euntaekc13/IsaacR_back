@@ -20,7 +20,7 @@ exports.getMachineData = async (req, res, next) => {
       console.log("POST raspi data");
       const data = req.body
       
-      if (data.address === 'Gwangju') {
+      if (data.address === 'Soongsil') {
         const control = data.control
         const logger2 = data.logger2
         const logger3 = data.logger3
@@ -54,7 +54,7 @@ exports.getMachineData = async (req, res, next) => {
           T12:logger2[11],
           T13:logger2[12],
           pump:logger2[16],
-          heater:control[17],
+          heater:logger2[17],
           sole_noid:logger2[14],
           drain:logger2[15],
           flowrate:logger2[13],
