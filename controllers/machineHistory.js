@@ -28,7 +28,7 @@ exports.MachineHistory = async( req, res, next) => {
     const endDate = new Date(enddate)
     
     // //where 조건 추가 필요
-    if(machinenumber === '광주 차온') {
+    if(machinenumber === '숭실대 차온') {
       const TestResult = await Machine1.findAll({
         where:{
           [Op.and]:{
@@ -41,11 +41,11 @@ exports.MachineHistory = async( req, res, next) => {
       console.log('TestResult : ',TestResult);
       
       return res.status(200).json({
-        message: "광주 차온",
+        message: "숭실대 차온",
         data: {TestResult}
       })
     } 
-    else if(machinenumber === '광주 가변'){
+    else if(machinenumber === '숭실대 가변'){
       const TestResult = await Machine2.findAll({
         where:{
           [Op.and]:{
@@ -56,11 +56,11 @@ exports.MachineHistory = async( req, res, next) => {
         }
       })
       return res.status(200).json({
-        message: "광주 가변",
+        message: "숭실대 가변",
         data: {TestResult}
       })
     } 
-    else if(machinenumber === '서울 차온'){
+    else if(machinenumber === '광주 차온'){
       const TestResult = await Machine3.findAll({
         where:{
           [Op.and]:{
@@ -71,11 +71,11 @@ exports.MachineHistory = async( req, res, next) => {
         }
       })
       return res.status(200).json({
-        message: "서울 차온",
+        message: "광주 차온",
         data: {TestResult}
       })
     }
-    else if(machinenumber == '서울 가변'){
+    else if(machinenumber == '광주 가변'){
       const TestResult = await Machine4.findAll({
         where:{
           [Op.and]:{
@@ -86,7 +86,7 @@ exports.MachineHistory = async( req, res, next) => {
         }
       })
       return res.status(200).json({
-        message: "서울 가변",
+        message: "광주 가변",
         data: {TestResult}
       })
     } else {
